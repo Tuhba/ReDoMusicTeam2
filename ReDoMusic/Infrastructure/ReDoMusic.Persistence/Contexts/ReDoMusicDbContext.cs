@@ -12,6 +12,7 @@ namespace ReDoMusic.Persistence.Contexts
     {
         public DbSet<Instrument> Instruments { get; set; }
         public DbSet<Brand> Brands { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) //Connection stringsle beraber veritbanına bağladık
         {
