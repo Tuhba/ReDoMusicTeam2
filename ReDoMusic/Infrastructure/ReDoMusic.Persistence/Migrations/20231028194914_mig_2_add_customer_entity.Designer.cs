@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using ReDoMusic.Persistence.Contexts;
@@ -11,9 +12,11 @@ using ReDoMusic.Persistence.Contexts;
 namespace ReDoMusic.Persistence.Migrations
 {
     [DbContext(typeof(ReDoMusicDbContext))]
-    partial class ReDoMusicDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231028194914_mig_2_add_customer_entity")]
+    partial class mig_2_add_customer_entity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -156,51 +159,6 @@ namespace ReDoMusic.Persistence.Migrations
                     b.HasIndex("BrandId");
 
                     b.ToTable("Instruments");
-                });
-
-            modelBuilder.Entity("ReDoMusic.Domain.Entities.Order", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("CreatedByUserId")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("DeletedByUserId")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateTime>("DeliveryDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("ModifiedByUserId")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateTime>("OrderDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("OrderId")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("OrderStatus")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("ReDoMusic.Domain.Entities.Instrument", b =>

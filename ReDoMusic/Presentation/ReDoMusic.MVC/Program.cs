@@ -27,4 +27,10 @@ app.MapControllerRoute(
     name: "customer",
     pattern: "{controller=Customer}/{action=Index}/{id?}");
 
+
+
+app.MapControllerRoute(
+    name: "order",
+    pattern: "{controller=Order}/{action=Index}/{id?}");
+
 app.Run();

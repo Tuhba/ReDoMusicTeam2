@@ -1,0 +1,27 @@
+﻿@model ReDoMusic.Domain.Entities.Order
+
+<h1>Delete Order</h1>
+
+
+<div>
+    <strong>Order Id:</strong>
+    @Model.OrderId
+</div>
+<div>
+    <strong>delicery date:</strong>
+    @Model.DeliveryDate
+</div>
+<div>
+    <strong>Order status:</strong>
+    @Model.OrderStatus
+</div>
+<div>
+    <strong>Order Date:</strong>
+    @Model.OrderDate
+</div>
+
+
+<form method="post" asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
