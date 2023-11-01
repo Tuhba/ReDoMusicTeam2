@@ -27,10 +27,16 @@ app.MapControllerRoute(
     name: "customer",
     pattern: "{controller=Customer}/{action=Index}/{id?}");
 
-
-
 app.MapControllerRoute(
     name: "order",
     pattern: "{controller=Order}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
+    name: "product",
+    pattern: "{controller=Product}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
+    name: "review",
+    pattern: "{controller=Review}/{action=Index}/{id?}");
 
 app.Run();

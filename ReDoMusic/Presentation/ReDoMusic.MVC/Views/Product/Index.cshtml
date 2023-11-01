@@ -1,0 +1,27 @@
+﻿@model List<ReDoMusic.Domain.Entities.Product>
+
+<h2>Product List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Description</td>
+                <td>@product.Price</td>
+                <td>
+                    <a href="/Product/AddReview?productId=@product.Id">Add Review</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
