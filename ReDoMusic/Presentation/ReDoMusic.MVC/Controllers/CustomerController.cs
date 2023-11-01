@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using ReDoMusic.Domain.Entities;
 using ReDoMusic.Persistence.Contexts;
 
@@ -7,6 +8,8 @@ namespace ReDoMusic.MVC.Controllers
     public class CustomerController : Controller
     {
         private readonly ReDoMusicDbContext _dbContext;
+        private object _dbcontext;
+
 
         public CustomerController()
         {
@@ -28,14 +31,14 @@ namespace ReDoMusic.MVC.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(string customerName, string customerEmail, string customerAddress)
+        public IActionResult AddCustomer(string firstName, string lastName, string email, string address)
         {
             var customer = new Customer()
             {
-                FirstName = customerName,
-                LastName = customerName,
-                Email = customerEmail,
-                Address = customerAddress,
+                FirstName = firstName,
+                LastName = lastName,
+                Email = email,
+                Address = address,
                 Id = Guid.NewGuid(),
                 CreatedOn = DateTime.UtcNow,
             };
@@ -58,5 +61,7 @@ namespace ReDoMusic.MVC.Controllers
 
             return RedirectToAction("Index");
         }
+
+
     }
 }
