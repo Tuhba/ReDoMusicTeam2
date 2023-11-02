@@ -22,10 +22,12 @@
   <ItemGroup>
     <None Remove="Views\Customer\" />
     <None Remove="Views\Product\" />
+    <None Remove="Views\Instrument\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Customer\" />
     <Folder Include="Views\Product\" />
+    <Folder Include="Views\Instrument\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Views\Product\Createcshtml">

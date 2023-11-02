@@ -1,0 +1,28 @@
+﻿@model ReDoMusic.Domain.Entities.Instrument
+
+<h2>Instrument Details</h2>
+
+<div>
+    <strong>Name:</strong> @Model.Name
+</div>
+<div>
+    <strong>Description:</strong> @Model.Description
+</div>
+<div>
+    <strong>Brand:</strong> @Model.Brand.Name
+</div>
+<div>
+    <strong>Price:</strong> @Model.Price
+</div>
+<div>
+    <strong>Color:</strong> @Model.Color
+</div>
+<div>
+    <strong>Production Year:</strong> @(Model.ProductionYear.HasValue ? Model.ProductionYear.Value.ToString("yyyy") : "N/A")
+</div>
+<div>
+    <strong>Barcode:</strong> @Model.Barcode
+</div>
+<div>
+    <strong>Picture:</strong> <img src="@Model.PictureUrl" alt="Instrument Image" style="max-width: 200px; max-height: 200px;" />
+</div>

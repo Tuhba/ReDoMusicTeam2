@@ -21,7 +21,7 @@ namespace ReDoMusic.Controllers
         }
 
         [HttpGet]
-        public IActionResult Add()
+        public IActionResult AddInstrument()
         {
             var brands = _dbContext.Brands.ToList();
 
@@ -29,7 +29,7 @@ namespace ReDoMusic.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(string name, string description, string brandId, string price, string barcode, string pictureUrl)
+        public IActionResult AddInstrument(string name, string description, string brandId, string price, string barcode, string pictureUrl)
         {
             var brand = _dbContext.Brands.Where(x => x.Id == Guid.Parse(brandId)).FirstOrDefault();
 
