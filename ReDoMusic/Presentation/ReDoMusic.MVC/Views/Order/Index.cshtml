@@ -5,7 +5,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Order Id</th>
+            <th>Order Instrument</th>
             <th> OrderStatus</th>
             <th>OrderDate</th>
             <th>DeliveryDate</th>
@@ -15,7 +15,8 @@
         @foreach (var order in Model)
         {
             <tr>
-                <td>@order.OrderId</td>
+                <td>@order.Instrument</td>
+
                 <td>@order.OrderStatus</td>
                 <td>@order.OrderDate</td>
                 <td>@order.DeliveryDate</td>

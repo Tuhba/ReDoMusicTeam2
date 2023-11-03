@@ -10,7 +10,7 @@ namespace ReDoMusic.Domain.Entities
 {
     public class Order :EntityBase<Guid>
     {
-        public String OrderId { get; set; }
+        public Instrument Instrument { get; set; }
         public  OrderStatus OrderStatus{ get; set; }
         public DateTime OrderDate { get; set; }
         public DateTime DeliveryDate {get;set;}

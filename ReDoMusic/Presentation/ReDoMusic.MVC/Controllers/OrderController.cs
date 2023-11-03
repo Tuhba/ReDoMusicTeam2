@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ReDoMusic.Domain.Entities;
+using ReDoMusic.Domain.Enums;
 using ReDoMusic.Persistence.Contexts;
 
 namespace ReDoMusic.MVC.Controllers
@@ -28,21 +29,23 @@ namespace ReDoMusic.MVC.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(String OrderStatus ,DateTime OrderTime ,DateTime DeliveryDate)
+        public IActionResult AddOrder(string instrumentId, DateTime OrderDate, DateTime DeliveryDate)
         {
-            var Order = new Order()
-            {
-                
-                Id = Guid.NewGuid(),
-                CreatedOn = DateTime.UtcNow,
-            };
+                var order = new Order
+                {
+                    Instrument = _dbContext.Instruments.Where(x => x.Id == Guid.Parse(instrumentId)).FirstOrDefault(),  
+                    OrderStatus = OrderStatus.routed,
+                    OrderDate = OrderDate,
+                    DeliveryDate = DeliveryDate,
+                    CreatedOn = DateTime.UtcNow
+                };
 
-            _dbContext.Add(Order);
+                _dbContext.Orders.Add(order);
+                _dbContext.SaveChanges();
 
-            _dbContext.SaveChanges();
-
-            return View();
+                return RedirectToAction("Index");
         }
+
 
         [Route("[controller]/[action]/{id}")]
         public IActionResult Delete(string id)

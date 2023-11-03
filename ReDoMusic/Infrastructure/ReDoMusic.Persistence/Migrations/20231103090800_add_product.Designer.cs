@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using ReDoMusic.Persistence.Contexts;
@@ -11,9 +12,11 @@ using ReDoMusic.Persistence.Contexts;
 namespace ReDoMusic.Persistence.Migrations
 {
     [DbContext(typeof(ReDoMusicDbContext))]
-    partial class ReDoMusicDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231103090800_add_product")]
+    partial class add_product
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -179,9 +182,6 @@ namespace ReDoMusic.Persistence.Migrations
                     b.Property<DateTime>("DeliveryDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<Guid>("InstrumentId")
-                        .HasColumnType("uuid");
-
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
@@ -194,12 +194,14 @@ namespace ReDoMusic.Persistence.Migrations
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<string>("OrderId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<int>("OrderStatus")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("InstrumentId");
 
                     b.ToTable("Orders");
                 });
@@ -258,17 +260,6 @@ namespace ReDoMusic.Persistence.Migrations
                         .IsRequired();
 
                     b.Navigation("Brand");
-                });
-
-            modelBuilder.Entity("ReDoMusic.Domain.Entities.Order", b =>
-                {
-                    b.HasOne("ReDoMusic.Domain.Entities.Instrument", "Instrument")
-                        .WithMany()
-                        .HasForeignKey("InstrumentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Instrument");
                 });
 
             modelBuilder.Entity("ReDoMusic.Domain.Entities.Review", b =>
