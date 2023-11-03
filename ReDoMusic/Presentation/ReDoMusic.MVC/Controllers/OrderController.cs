@@ -35,8 +35,8 @@ namespace ReDoMusic.MVC.Controllers
                 {
                     Instrument = _dbContext.Instruments.Where(x => x.Id == Guid.Parse(instrumentId)).FirstOrDefault(),  
                     OrderStatus = OrderStatus.routed,
-                    OrderDate = OrderDate,
-                    DeliveryDate = DeliveryDate,
+                    OrderDate = DateTime.UtcNow,
+                    DeliveryDate = DateTime.UtcNow,
                     CreatedOn = DateTime.UtcNow
                 };
 

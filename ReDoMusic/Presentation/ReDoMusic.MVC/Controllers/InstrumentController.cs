@@ -15,13 +15,13 @@ namespace ReDoMusic.Controllers
 
         public IActionResult Index() 
         {
-            var products = _dbContext.Instruments.ToList();
+            var products = _dbContext.Instruments.Include(x=>x.Brand).ToList();
 
             return View(products);
         }
 
         [HttpGet]
-        public IActionResult AddInstrument()
+        public IActionResult Add()
         {
             var brands = _dbContext.Brands.ToList();
 
@@ -29,7 +29,7 @@ namespace ReDoMusic.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddInstrument(string name, string description, string brandId, string price, string barcode, string pictureUrl)
+        public IActionResult Add(string name, string description, string brandId, string price, string barcode, string pictureUrl)
         {
             var brand = _dbContext.Brands.Where(x => x.Id == Guid.Parse(brandId)).FirstOrDefault();
 

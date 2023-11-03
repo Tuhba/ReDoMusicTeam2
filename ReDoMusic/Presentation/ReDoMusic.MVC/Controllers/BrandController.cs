@@ -22,7 +22,7 @@ namespace ReDoMusic.MVC.Controllers
         }
 
         [HttpGet]
-        public IActionResult AddBrand()
+        public IActionResult Add()
         {
             return View();
         }
