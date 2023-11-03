@@ -1,0 +1,33 @@
+﻿@model List<ReDoMusic.Domain.Entities.Instrument>
+
+<h2>Instruments</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Brand</th>
+            <th>Price</th>
+            <th>Color</th>
+            <th>Production Year</th>
+            <th>Barcode</th>
+            <th>Picture</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var instrument in Model)
+        {
+            <tr>
+                <td>@instrument.Name</td>
+                <td>@instrument.Description</td>
+                <td>@instrument.Brand.Name</td>
+                <td>@instrument.Price</td>
+                <td>@instrument.Color</td>
+                <td>@(instrument.ProductionYear.HasValue ? instrument.ProductionYear.Value.ToString("yyyy") : "N/A")</td>
+                <td>@instrument.Barcode</td>
+                <td><img src="@instrument.PictureUrl" alt="Instrument Image" style="max-width: 100px; max-height: 100px;" /></td>
+            </tr>
+        }
+    </tbody>
+</table>
