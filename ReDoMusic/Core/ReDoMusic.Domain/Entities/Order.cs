@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace ReDoMusic.Domain.Entities
 {
-    public class Order :EntityBase<Guid>
+    public class Order : EntityBase<Guid>
     {
         public Instrument Instrument { get; set; }
-        public  OrderStatus OrderStatus{ get; set; }
+        public OrderStatus OrderStatus { get; set; }
         public DateTime OrderDate { get; set; }
-        public DateTime DeliveryDate {get;set;}
+        public DateTime DeliveryDate { get; set; }
 
 
     }

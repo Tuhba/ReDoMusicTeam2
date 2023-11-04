@@ -31,19 +31,19 @@ namespace ReDoMusic.MVC.Controllers
         [HttpPost]
         public IActionResult AddOrder(string instrumentId, DateTime OrderDate, DateTime DeliveryDate)
         {
-                var order = new Order
-                {
-                    Instrument = _dbContext.Instruments.Where(x => x.Id == Guid.Parse(instrumentId)).FirstOrDefault(),  
-                    OrderStatus = OrderStatus.routed,
-                    OrderDate = DateTime.UtcNow,
-                    DeliveryDate = DateTime.UtcNow,
-                    CreatedOn = DateTime.UtcNow
-                };
+            var order = new Order
+            {
+                Instrument = _dbContext.Instruments.Where(x => x.Id == Guid.Parse(instrumentId)).FirstOrDefault(),
+                OrderStatus = OrderStatus.routed,
+                OrderDate = DateTime.UtcNow,
+                DeliveryDate = DateTime.UtcNow,
+                CreatedOn = DateTime.UtcNow
+            };
 
-                _dbContext.Orders.Add(order);
-                _dbContext.SaveChanges();
+            _dbContext.Orders.Add(order);
+            _dbContext.SaveChanges();
 
-                return RedirectToAction("Index");
+            return RedirectToAction("Index");
         }
 
 

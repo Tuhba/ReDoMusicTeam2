@@ -15,6 +15,12 @@ namespace ReDoMusic.MVC.Controllers
         {
            _dbContext = new();
         }
+        [HttpGet]
+        public IActionResult Index()
+        {
+            List<Product> products = _dbContext.Products.ToList();
+            return View(products);
+        }
 
         [HttpGet]
         public IActionResult CreateProduct()
