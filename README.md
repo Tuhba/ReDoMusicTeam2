@@ -9,8 +9,6 @@ Instruman markasını belirtmek için entities’e Brand klasörü oluşturup, g
 
 Ürünleri sipariş edebilmek için OrderController ekleyip, oluşturulan enstrümanlardan sipariş edilebilmesini sağladık. Son olarak da kullanıcıların siparişi yorumlayabileceği ProductControllerı ekledik view kısmında hangi ürüne yorum ekleyebileceği ve beş puan üzerinden değerlendirip, yorum yapabileceğini oluşturduk.
 
-Takım arkadaşlarımdan Şeyma projede customer, product, review controller, views entities ve instrument view kısımlarını, Sude, brand, order, product, review kısınlarını, Tuğba, projenin oluşturması, costumer controller, views, entities kısımlarını yaptı (diğer takım arkadaşımız takım çalışmasına katılmadı).
+Takım arkadaşlarımdan Şeyma projede customer, product, review controller, views entities ve instrument view kısımlarını oluşturdu. Sude, brand, order, product, review kısınlarına odaklandı. Tuğba, projenin oluşturması, customer controller, views, entities kısımlarını tamamladı (diğer takım arkadaşımız takım çalışmasına katılmadı).
 
-Genel olarak birbirimiz yaptığı yenilikleri kontrollü şekilde ilerledik ve iletişim halinde kaldık. Oluşan sorunlarımızda birlikte çözmeye çalışıp videolar ile hatanın nerede olduğunu araştırıp, karşılaştırdık çözemediğimiz zaman Hakan hocamıza sorduk.
-
- 
+Genel olarak birbirimizin yaptığı yenilikleri kontrollü bir şekilde ilerlettik ve sürekli iletişim halinde olduk. Karşılaştığımız sorunları birlikte çözmeye çalıştık, hata yerini belirlemek için videoları inceledik. Eğer çözüm bulamazsak, Hakan hocamıza danıştık.
